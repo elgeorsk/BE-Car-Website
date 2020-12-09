@@ -2,6 +2,7 @@ package com.udacity.vehicles.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Car not found")
 public class CarNotFoundException extends RuntimeException {

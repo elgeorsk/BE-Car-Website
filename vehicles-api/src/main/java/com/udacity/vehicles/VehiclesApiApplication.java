@@ -23,7 +23,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 @EnableJpaAuditing
 @OpenAPIDefinition(info = @Info(title="Vehicle API", version = "1.0",
         description = "Vehicle microservice"))
-@ConfigurationProperties("app.api")
 public class VehiclesApiApplication {
 
     public static void main(String[] args) {

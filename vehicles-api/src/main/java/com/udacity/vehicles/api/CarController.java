@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
 
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.MediaType;
@@ -29,6 +33,11 @@ import org.springframework.web.bind.annotation.RestController;
  * Implements a REST-based controller for the Vehicles API.
  */
 @RestController
+@ApiResponses(value = {
+        @ApiResponse(responseCode="400", description  = "This is a bad request, please follow the API documentation for the proper request format.", content = @Content(schema = @Schema(hidden = true))),
+        @ApiResponse(responseCode="401", description  = "Due to security constraints, your access request cannot be authorized. ",content = @Content(schema = @Schema(hidden = true))),
+        @ApiResponse(responseCode="500", description  = "The server is down. Please make sure that the Location microservice is running.",content = @Content(schema = @Schema(hidden = true)))
+})
 @RequestMapping("/cars")
 class CarController {
 
