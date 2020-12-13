@@ -1,21 +1,10 @@
 package com.udacity.pricing;
 
-import com.udacity.pricing.api.PricingController;
-import com.udacity.pricing.entity.Price;
-import com.udacity.pricing.repository.PriceRepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.Map;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
 
 /**
  * Creates a Spring Boot Application to run the Pricing Service.

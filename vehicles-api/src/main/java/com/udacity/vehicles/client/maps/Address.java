@@ -1,13 +1,24 @@
 package com.udacity.vehicles.client.maps;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Declares a class to store an address, city, state and zip code.
  */
+
 public class Address {
 
+    @JsonProperty("name")
     private String address;
+
+    @JsonProperty("locality")
     private String city;
+
+    @JsonProperty("region")
     private String state;
+
+    @JsonProperty("postal_code")
     private String zip;
 
     public Address() {

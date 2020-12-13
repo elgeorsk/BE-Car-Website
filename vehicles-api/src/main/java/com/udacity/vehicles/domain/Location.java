@@ -1,5 +1,7 @@
 package com.udacity.vehicles.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
@@ -11,6 +13,7 @@ import javax.validation.constraints.NotNull;
  * the maps API.
  */
 @Embeddable
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Location {
 
     @NotNull

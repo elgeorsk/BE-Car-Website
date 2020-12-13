@@ -11,8 +11,11 @@ import java.math.BigDecimal;
 
 public class Price {
 
+    @JsonProperty("vehicleId")
     private Long vehicleId;
+    @JsonProperty("currency")
     private String currency;
+    @JsonProperty("price")
     private BigDecimal price;
 
     public Price() {

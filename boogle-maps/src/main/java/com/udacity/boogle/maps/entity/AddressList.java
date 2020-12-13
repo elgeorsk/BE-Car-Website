@@ -1,4 +1,4 @@
-package com.udacity.boogle.maps;
+package com.udacity.boogle.maps.entity;
 
 import java.util.List;
 

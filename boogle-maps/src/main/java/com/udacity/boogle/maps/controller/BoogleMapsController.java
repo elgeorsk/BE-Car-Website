@@ -1,5 +1,7 @@
-package com.udacity.boogle.maps;
+package com.udacity.boogle.maps.controller;
 
+import com.udacity.boogle.maps.entity.Address;
+import com.udacity.boogle.maps.service.BoogleMapsService;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
