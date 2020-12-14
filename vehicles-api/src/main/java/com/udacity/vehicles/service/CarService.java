@@ -8,6 +8,7 @@ import com.udacity.vehicles.domain.car.CarRepository;
 import java.util.Collections;
 import java.util.List;
 
+import com.udacity.vehicles.domain.manufacturer.Manufacturer;
 import com.udacity.vehicles.domain.manufacturer.ManufacturerRepository;
 import org.springframework.stereotype.Service;
 
@@ -48,6 +49,15 @@ public class CarService {
                 cars.get(i).setLocation(mapsClient.getAddress(cars.get(i).getLocation()));
             }
             return cars;
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
+    public List<Manufacturer> listMan() {
+        if (!manufacturerRepository.findAll().isEmpty()) {
+            List<Manufacturer> mans =  manufacturerRepository.findAll();
+            return mans;
         } else {
             return Collections.emptyList();
         }
