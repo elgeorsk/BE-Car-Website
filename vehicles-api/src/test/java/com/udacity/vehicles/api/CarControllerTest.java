@@ -28,7 +28,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -77,7 +76,6 @@ public class CarControllerTest {
      * @throws Exception when car creation fails in the system
      */
     @Test
-    @Order(1)
     public void createCar() throws Exception {
         Car car = getCar();
         mvc.perform(
@@ -93,7 +91,6 @@ public class CarControllerTest {
      * @throws Exception if the read operation of the vehicle list fails
      */
     @Test
-    @Order(2)
     public void listCars() throws Exception {
         /**
          * Done: Add a test to check that the `get` method works by calling
@@ -107,12 +104,25 @@ public class CarControllerTest {
 
     }
 
+    @Test
+    public void updateCar() throws Exception {
+        Car carToBeUpdate = carService.findById(1L);
+        carToBeUpdate.setId(1L);
+        Details details = carToBeUpdate.getDetails();
+        details.setModel("Corvette");
+        carToBeUpdate.setDetails(details);
+        carService.save(carToBeUpdate);
+        mvc.perform(get(new URI("/cars/1")))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.details.model").value("Corvette"));
+    }
+
     /**
      * Tests the read operation for a single car by ID.
      * @throws Exception if the read operation for a single car fails
      */
     @Test
-    @Order(3)
     public void findCar() throws Exception {
         /**
          * Done: Add a test to check that the `get` method works by calling
@@ -129,7 +139,6 @@ public class CarControllerTest {
      * @throws Exception if the delete operation of a vehicle fails
      */
     @Test
-    @Order(4)
     public void deleteCar() throws Exception {
         /**
          * Done: Add a test to check whether a vehicle is appropriately deleted
